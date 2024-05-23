@@ -1,0 +1,179 @@
+<!-- http://localhost/filemanagement/Private_Dashboard/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="THESIS">
+  <meta http-equiv="authors" content="GROUP 1 BSCS 3A">
+  <title>LOG IN | ADMIN</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="../css/style.css" rel="stylesheet">
+  <!-- for dana font style -->
+  <link href="https://fonts.cdnfonts.com/css/dana" rel="stylesheet">
+  <style type="text/css">
+    @import url('https://fonts.cdnfonts.com/css/dana');
+    body{
+      background-image: url("img/honey_im_subtle.png");
+    }
+    #loader{
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background: url('img/loading.gif') 50% 50% no-repeat rgb(249,249,249);
+        opacity: 1;
+    }
+
+    img{
+      margin-right: 26.5rem;
+      margin-left: 1rem;
+    }
+
+    #login{
+      margin-top: -1rem;
+    }
+
+    </style>
+</head>
+
+<body style="padding:0px; margin:0px; background-color:silver;font-family: 'dana', sans-serif;">
+
+  <!-- Start your project here-->
+<!--Navbar -->
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark orange lighten-1">
+  <a style="letter-spacing: 3px; font-size: 35px" class="navbar-brand" href="#"><img src="../js/img/catholic.png" width="120px" height="90px"> <font size="8" color="black">H</font>uman <font size="8" color="black">R</font>esources <font size="8" color="black">I</font>nformation <font size="8" color="black">S</font>ystem</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"          
+    aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+</nav>
+<!--/.Navbar -->
+<br><Br>
+<!-- Card -->
+<div class="container col-md-5">
+ <!-- Card -->
+<div class="card">
+ <div id="loader"></div>
+    <!-- Card body -->
+    <div class="card-body">
+
+        <!-- Material form register -->
+        <form action="admin_login.php" method="POST">
+            <p style="font-size: 3rem" class="h4 text-center py-4">ADMIN SIGN IN</p>
+
+            <!-- Material input text -->
+
+            <div class="md-form">
+                <i class="fa fa-envelope prefix grey-text"></i>
+                <input type="email" id="materialFormCardEmailEx" name="admin_user" class="form-control" >
+                <label for="materialFormCardEmailEx" class="font-weight-light">Email:</label>
+            </div>
+            <!-- Material input password -->
+            <div class="md-form">
+                <i class="fa fa-lock prefix grey-text"></i>
+                <input type="password" id="myInput" name="admin_password" class="form-control">
+                <label for="materialFormCardPasswordEx" class="font-weight-light">Password:</label>
+                <span class="eye" onClick="eyeHidden()">
+                  <i id="eye-hide1" class="fas fa-eye"></i>
+                  <i id="eye-hide2" class="fas fa-eye-slash"></i>
+                </span>
+            </div>
+
+            <div class="text-center py-4 mt-3">
+                <button class="btn btn-warning btn-lg btn-block" name = "adminlog" id="login" type="submit">Sign In</button>
+            </div>
+      
+            <h4 style="margin-left: 0rem;">Not registered yet? <a href="admin_register.php" style="font-size: 1.5rem">Create an Account</a></h4>
+        </form>
+        <!-- Material form register -->
+
+    </div>
+
+    <!-- Card body -->
+
+</div>
+<!-- Card --></div>
+<!-- Card -->
+  <!-- /Start your project here-->      
+
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="js/jquery-3.4.0.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- extra js for optional if needed -->
+  <script src="../js/script.js"></script>
+</body>
+
+<script type="text/javascript">
+   $("#login").on("click", function () {
+   
+          uservalidate();
+          passvalidate();
+   
+         if (uservalidate() === true
+          && passvalidate() === true
+   
+          ) {
+   
+   };
+   
+   
+   });
+   
+   
+   function uservalidate() {
+   if ($('#materialFormCardEmailEx').val() == '') { 
+       $('#materialFormCardEmailEx').css('border-color', '#dc3545');
+    return false;
+     } else {
+      $('#materialFormCardEmailEx').css('border-color', '#28a745'); 
+       return true;
+   }
+   
+   };
+   
+   function passvalidate() {
+   if ($('#materialFormCardPasswordEx').val() == '') { 
+    $('#materialFormCardPasswordEx').css('border-color', '#dc3545');
+    return false;
+     } else {
+      $('#materialFormCardPasswordEx').css('border-color', '#28a745'); 
+       return true;
+   }
+   
+   };
+   
+   
+</script>
+  <script src = "jss/jquery.js"></script>
+  <script src = "jss/bootstrap.js"></script>
+  <script src = "jss/login.js"></script>
+  <script src="jquery.min.js"></script>
+<script type="text/javascript">
+  $(window).on('load', function(){
+    //you remove this timeout
+    setTimeout(function(){
+          $('#loader').fadeOut('slow');  
+      }, 1000);
+      //remove the timeout
+      //$('#loader').fadeOut('slow'); 
+  });
+</script>
+</html>
+</body>

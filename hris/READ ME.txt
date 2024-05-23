@@ -1,0 +1,5 @@
+phpmyadmin login
+user: root
+pass: (none)
+
+database name: hris_db
